@@ -2,13 +2,20 @@
   "name": "vuemc-shopaholic-base",
   "version": "1.0.75",
   "description": "Base of models and collections for ApiShopaholic plugin",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/planetadeleste/vuemc-shopaholic-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/planetadeleste/vuemc-shopaholic-base/issues"
   },
   "author": "Alvaro Canepa",
   "license": "MIT",
-  "types": "src/types/vue-mc.d.ts",
+  "main": "dist/index.js",
+  "types": "src/vue-mc.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "object-to-formdata": "^4.1.0",
