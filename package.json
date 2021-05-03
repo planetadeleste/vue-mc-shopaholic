@@ -1,0 +1,34 @@
+{
+  "name": "vuemc-shopaholic-base",
+  "version": "1.0.75",
+  "description": "Base of models and collections for ApiShopaholic plugin",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Alvaro Canepa",
+  "license": "MIT",
+  "types": "src/types/vue-mc.d.ts",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "object-to-formdata": "^4.1.0",
+    "vue-mc": "^0.6.0"
+  },
+  "devDependencies": {
+    "@bit/planetadeleste.shopaholic.types.api": "^0.0.10",
+    "@types/lodash": "^4.14.168",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "lodash": "^4.17.21",
+    "ts-loader": "^9.1.1",
+    "typescript": "^4.2.4",
+    "vue": "^2.6.12",
+    "vuex-module-decorators": "^1.0.1"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
