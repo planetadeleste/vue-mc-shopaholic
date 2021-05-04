@@ -13,7 +13,8 @@ import { toString, trim, isNil } from "lodash";
 export { Base, Collection, Model, File, Request };
 /**
  * Convert value to string and trim
- * @param {string} [sVal]
+ * @param {string} sVal
+ * @returns {string}
  */
 export const cleanStr = (sVal) => {
     if (isNil(sVal)) {
