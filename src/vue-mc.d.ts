@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 declare module "vue-mc" {
   import { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
 
@@ -975,7 +976,7 @@ declare module "vue-mc" {
     /**
      * @inheritDoc
      */
-    getDeleteBody(): string[] | {};
+    getDeleteBody(): string[] | Record<string, string>;
     /**
      * @returns {string} The query parameter key to use for model identifiers.
      */
