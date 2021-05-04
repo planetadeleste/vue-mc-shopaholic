@@ -1,5 +1,5 @@
 {
-  "name": "vuemc-shopaholic-base",
+  "name": "@planetadeleste/vue-mc-shopaholic",
   "version": "1.0.75",
   "description": "Base of models and collections for ApiShopaholic plugin",
   "repository": {
