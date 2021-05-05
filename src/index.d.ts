@@ -76,7 +76,7 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
 
   export type RecordProfileData = UserRegisterOptions & Record<string, any>;
   interface Profile extends Model, ProfileData {}
-  export class Profile extends Model {
+  class Profile extends Model {
     loadAvatar(): Promise<Response<ResponseProfileAvatarData>>;
     loadAddress(): Promise<Response<UserAddressData[]>>;
     addAddress(
@@ -93,6 +93,7 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     ): Promise<Response<ResponseLoginRegisterData>>;
     logout(): Promise<Response>;
   }
+  export { Profile };
 
   export interface User extends Model, UserData {
     stats(): Promise<Response>;
