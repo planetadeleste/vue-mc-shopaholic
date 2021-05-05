@@ -34,7 +34,8 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     UserAddressUpdateResponse,
   };
 
-  export interface Auth extends Model, AuthData {
+  interface Auth extends Model, AuthData {}
+  class Auth extends Model {
     check(): Promise<Response>;
     csrf(): Promise<Response>;
     refresh(): Promise<Response>;
@@ -49,27 +50,38 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     ): Promise<Response>;
     checkResetCode(sCode: string): Promise<Response>;
   }
+  export { Auth };
 
-  export interface Brand extends Model, BrandData {}
+  interface Brand extends Model, BrandData {}
+  class Brand extends Model {}
+  export { Brand };
   export class Brands extends Collection<Brand> {}
 
-  export interface Category extends Model, CategoryData {}
+  interface Category extends Model, CategoryData {}
+  class Category extends Model {}
+  export { Category };
   export class Categories extends Collection<Category> {
     tree(): Promise<Response<CategoryData[]>>;
     byActive(): Categories;
     byTree(): Categories;
   }
 
-  export interface Group extends Model, GroupData {}
+  interface Group extends Model, GroupData {}
+  class Group extends Model {}
+  export { Group };
   export class Groups extends Collection<Group> {}
 
-  export interface Offer extends Model, OfferData {}
+  interface Offer extends Model, OfferData {}
+  class Offer extends Model {}
+  export { Offer };
 
-  export interface Product extends Model, ProductData {
+  interface Product extends Model, ProductData {}
+  class Product extends Model {
     stats(): Promise<Response>;
     getOffers(): Promise<Response<OfferData[]>>;
     updateOffers(): Promise<void>;
   }
+  export { Product };
   export class Products extends Collection<Product> {
     byActive(): Products;
   }
@@ -95,9 +107,11 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
   }
   export { Profile };
 
-  export interface User extends Model, UserData {
+  interface User extends Model, UserData {}
+  class User extends Model {
     stats(): Promise<Response>;
   }
+  export { User };
   export class Users extends Collection<User> {}
   export interface UserAddress extends Model, UserAddressData {}
 }
