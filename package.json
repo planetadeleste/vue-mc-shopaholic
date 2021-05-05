@@ -1,6 +1,6 @@
 {
   "name": "@planetadeleste/vue-mc-shopaholic",
-  "version": "1.0.76",
+  "version": "1.1.0",
   "description": "Base of models and collections for ApiShopaholic plugin",
   "repository": {
     "type": "git",
@@ -12,11 +12,12 @@
   "author": "Alvaro Canepa",
   "license": "MIT",
   "main": "dist/index.js",
-  "types": "src/vue-mc.d.ts",
+  "types": "src/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
+    "@planetadeleste/vue-mc": "^1.0.77",
     "axios": "^0.21.1",
     "object-to-formdata": "^4.1.0",
     "vue-mc": "^0.6.0"

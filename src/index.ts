@@ -1,28 +1,37 @@
 /**
- * Base Models and Collections.
- * Prepared to be used with PlanetaDelEste.ApiShopaholic OctoberCMS plugin
+ * Models and Collections for Shopaholic plugin
  *
  * @author Alvaro Canepa <bfpdevel@gmail.com>
  */
 
-import Collection from "./structure/Collection";
-import Model from "./structure/Model";
-import Base from "./structure/Base";
-import File from "./structure/File";
-import Request from "./request/Request";
+// COLLECTIONS
+import Brands from "./collections/Brands";
+import Categories from "./collections/Categories";
+import Groups from "./collections/Groups";
+import Products from "./collections/Products";
+import Users from "./collections/Users";
 
-import { toString, trim, isNil } from "lodash";
+export { Brands, Categories, Groups, Products, Users };
 
-export { Base, Collection, Model, File, Request };
+// MODELS
+import Auth from "./models/Auth";
+import Brand from "./models/Brand";
+import Category from "./models/Category";
+import Group from "./models/Group";
+import Offer from "./models/Offer";
+import Product from "./models/Product";
+import Profile from "./models/Profile";
+import User from "./models/User";
+import UserAddress from "./models/UserAddress";
 
-/**
- * Convert value to string and trim
- * @param {string} sVal
- * @returns {string}
- */
-export const cleanStr = (sVal?: string): string | null => {
-  if (isNil(sVal)) {
-    return null;
-  }
-  return trim(toString(sVal));
+export {
+  Auth,
+  Brand,
+  Category,
+  Group,
+  Offer,
+  Product,
+  Profile,
+  User,
+  UserAddress
 };

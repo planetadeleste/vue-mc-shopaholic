@@ -66,6 +66,15 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@planetadeleste/vue-mc@^1.0.77":
+  version "1.0.77"
+  resolved "https://registry.yarnpkg.com/@planetadeleste/vue-mc/-/vue-mc-1.0.77.tgz#49407934d4f7961fefc3262f849d7cfffc550b04"
+  integrity sha512-iHfqrSLE04CPBTSq+Ib8E0W2lgs0FHRo5+2cI5SStRZWIvCKuwsbfZc3sas4l4MPCTKwo96avKveZZMPpSju4w==
+  dependencies:
+    axios "^0.21.1"
+    object-to-formdata "^4.1.0"
+    vue-mc "^0.6.0"
+
 "@types/json-schema@^7.0.3":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
