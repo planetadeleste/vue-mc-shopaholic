@@ -19,7 +19,7 @@ export interface OfferData {
   description: string;
   preview_image: string;
   images: FileData[];
-  property: any[];
+  property: Record<string, any>;
 
   // TicketShopaholic plugin
   start_publish_at: string;

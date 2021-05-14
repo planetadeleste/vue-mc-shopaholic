@@ -18,10 +18,10 @@ export interface ProfileData {
 }
 
 export type UserRegisterOptions = {
-  name: string;
-  email: string;
-  password: string;
-  password_confirmation: string;
+  name?: string;
+  email?: string;
+  password?: string;
+  password_confirmation?: string;
 };
 
 export interface ResponseLoginRegisterData {

@@ -2,7 +2,7 @@
   /**
    * @license
    * author: Alvaro Canepa
-   * vue-mc-shopaholic.js v1.1.5
+   * vue-mc-shopaholic.js v1.1.8
    * Released under the MIT license.
    */
 
