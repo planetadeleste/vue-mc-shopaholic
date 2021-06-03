@@ -1,4 +1,4 @@
-import { OfferData } from "@/types";
+import { OfferData, StatResponse } from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
 import { Response } from "vue-mc";
@@ -88,7 +88,7 @@ export default class Product extends Model {
     };
   }
 
-  async stats(): Promise<Response> {
+  async stats(): Promise<Response<StatResponse>> {
     return await this.createCustomRequest("stats", []);
   }
 

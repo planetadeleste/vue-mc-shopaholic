@@ -7,3 +7,4 @@ export * from "./Product";
 export * from "./Profile";
 export * from "./User";
 export * from "./UserAddress";
+export * from "./Stats";

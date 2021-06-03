@@ -26,7 +26,7 @@ export default class Profile extends Model {
       phone: null,
       phone_list: null,
       avatar: null,
-      property: [],
+      property: {},
       address: null,
       role: null,
       created_at: null,

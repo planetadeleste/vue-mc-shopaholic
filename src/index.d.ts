@@ -12,6 +12,8 @@ import {
   UserData,
   UserAddressData,
   UserAddressUpdateResponse,
+  StatResponse,
+  StatData
 } from "./types";
 
 declare module "@planetadeleste/vue-mc-shopaholic" {
@@ -56,7 +58,7 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
 
   interface Product extends Model, ProductData {}
   class Product extends Model {
-    stats(): Promise<Response>;
+    stats(): Promise<Response<StatResponse>>;
     getOffers(): Promise<Response<OfferData[]>>;
     updateOffers(): Promise<void>;
   }
@@ -86,7 +88,7 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
 
   interface User extends Model, UserData {}
   class User extends Model {
-    stats(): Promise<Response>;
+    stats(): Promise<Response<StatResponse>>;
   }
   export class Users extends Collection<User> {}
 
@@ -116,5 +118,7 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     UserAddressData,
     UserAddress,
     UserAddressUpdateResponse,
+    StatData,
+    StatResponse
   };
 }

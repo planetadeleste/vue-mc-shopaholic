@@ -1,3 +1,4 @@
+import { StatResponse } from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber, chain } from "lodash";
 import { Response } from "vue-mc";
@@ -16,7 +17,7 @@ export default class User extends Model {
       phone: null,
       phone_list: null,
       avatar: null,
-      property: [],
+      property: {},
       address: null,
       password: null,
       password_confirmation: null,
@@ -69,7 +70,7 @@ export default class User extends Model {
     };
   }
 
-  async stats(): Promise<Response> {
+  async stats(): Promise<Response<StatResponse>> {
     return await this.createCustomRequest("stats");
   }
 }
