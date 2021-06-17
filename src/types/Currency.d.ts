@@ -1,0 +1,11 @@
+export interface CurrencyData {
+  id: number;
+  name: string;
+  active: boolean;
+  is_default: boolean;
+  code: string;
+  rate: string | number;
+  symbol: string;
+  created_at: string;
+  updated_at: string;
+}

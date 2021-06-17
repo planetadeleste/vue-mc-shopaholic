@@ -2,18 +2,19 @@ import {
   AuthData,
   BrandData,
   CategoryData,
+  CurrencyData,
   GroupData,
   OfferData,
   ProductData,
   ProfileData,
-  UserRegisterOptions,
   ResponseLoginRegisterData,
   ResponseProfileAvatarData,
-  UserData,
+  StatData,
+  StatResponse,
   UserAddressData,
   UserAddressUpdateResponse,
-  StatResponse,
-  StatData
+  UserData,
+  UserRegisterOptions,
 } from "./types";
 
 declare module "@planetadeleste/vue-mc-shopaholic" {
@@ -95,30 +96,36 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
   interface UserAddress extends Model, UserAddressData {}
   class UserAddress extends Model {}
 
+  interface Currency extends Model, CurrencyData { }
+  class Currency extends Model { }
+  export class Currencies extends Collection<Currency> {}
+
   export {
-    AuthData,
     Auth,
-    BrandData,
+    AuthData,
     Brand,
-    CategoryData,
+    BrandData,
     Category,
-    GroupData,
+    CategoryData,
+    Currency,
+    CurrencyData,
     Group,
-    OfferData,
+    GroupData,
     Offer,
-    ProductData,
+    OfferData,
     Product,
-    ProfileData,
+    ProductData,
     Profile,
-    UserRegisterOptions,
+    ProfileData,
     ResponseLoginRegisterData,
     ResponseProfileAvatarData,
-    UserData,
-    User,
-    UserAddressData,
-    UserAddress,
-    UserAddressUpdateResponse,
     StatData,
-    StatResponse
+    StatResponse,
+    User,
+    UserAddress,
+    UserAddressData,
+    UserAddressUpdateResponse,
+    UserData,
+    UserRegisterOptions,
   };
 }
