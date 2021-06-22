@@ -1,5 +1,6 @@
 export interface CurrencyData {
   id: number;
+  external_id: number | string;
   name: string;
   active: boolean;
   is_default: boolean;

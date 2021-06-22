@@ -6,6 +6,7 @@ export default class Currency extends Model {
   defaults(): Record<string, any> {
     return {
       id: null,
+      external_id: null,
       name: null,
       active: false,
       is_default: false,
