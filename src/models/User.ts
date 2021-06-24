@@ -8,7 +8,7 @@ export default class User extends Model {
   defaults(): Record<string, any> {
     return {
       id: null,
-      is_activated: false,
+      is_activated: true,
       name: null,
       email: null,
       groups: [],

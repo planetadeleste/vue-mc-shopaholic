@@ -8,7 +8,7 @@ export default class Category extends Model {
     return {
       id: null,
       parent_id: null,
-      active: false,
+      active: true,
       name: null,
       code: null,
       slug: null,

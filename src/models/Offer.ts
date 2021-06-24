@@ -31,7 +31,7 @@ export default class Offer extends Model {
     return {
       id: null,
       product_id: null,
-      active: false,
+      active: true,
       name: null,
       code: null,
       price: null,

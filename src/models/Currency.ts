@@ -8,7 +8,7 @@ export default class Currency extends Model {
       id: null,
       external_id: null,
       name: null,
-      active: false,
+      active: true,
       is_default: false,
       code: null,
       rate: 1,

@@ -36,7 +36,7 @@ export default class Product extends Model {
       id: null,
       category_id: null,
       brand_id: null,
-      active: false,
+      active: true,
       slug: null,
       name: null,
       category_name: null,

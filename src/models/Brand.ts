@@ -8,7 +8,7 @@ export default class Brand extends Model {
       id: null,
       name: null,
       slug: null,
-      active: false,
+      active: true,
       code: null,
       preview_text: null,
       preview_image: null,
