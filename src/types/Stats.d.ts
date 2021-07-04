@@ -9,5 +9,6 @@ export interface StatData {
 
 export interface StatResponse {
   total: number;
+  count: number;
   months: StatData[];
 }
