@@ -20,11 +20,16 @@ export default class Categories extends Collection<Category> {
     return {
       fetch: "categories.index",
       tree: "categories.tree",
+      list: "categories.list",
     };
   }
 
   async tree(): Promise<Response<CategoryData[]>> {
     return await this.createCustomRequest("tree");
+  }
+
+  async list(): Promise<Response<CategoryData[]>> {
+    return await this.createCustomRequest("list");
   }
 
   /**

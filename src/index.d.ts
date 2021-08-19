@@ -40,19 +40,24 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
 
   interface Brand extends Model, BrandData {}
   class Brand extends Model {}
-  export class Brands extends Collection<Brand> {}
+  export class Brands extends Collection<Brand> {
+    list(): Promise<Response<BrandData[]>>;
+  }
 
   interface Category extends Model, CategoryData {}
   class Category extends Model {}
   export class Categories extends Collection<Category> {
     tree(): Promise<Response<CategoryData[]>>;
+    list(): Promise<Response<CategoryData[]>>;
     byActive(): Categories;
     byTree(): Categories;
   }
 
   interface Group extends Model, GroupData {}
   class Group extends Model {}
-  export class Groups extends Collection<Group> {}
+  export class Groups extends Collection<Group> {
+    list(): Promise<Response<GroupData[]>>;
+  }
 
   interface Offer extends Model, OfferData {}
   class Offer extends Model {}
@@ -96,8 +101,8 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
   interface UserAddress extends Model, UserAddressData {}
   class UserAddress extends Model {}
 
-  interface Currency extends Model, CurrencyData { }
-  class Currency extends Model { }
+  interface Currency extends Model, CurrencyData {}
+  class Currency extends Model {}
   export class Currencies extends Collection<Currency> {}
 
   export {
