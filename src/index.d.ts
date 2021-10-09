@@ -95,6 +95,12 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
   interface User extends Model, UserData {}
   class User extends Model {
     stats(): Promise<Response<StatResponse>>;
+    loadAddress(): Promise<Response<UserAddressData[]>>;
+    addAddress(
+      obAddress: UserAddressData
+    ): Promise<Response<UserAddressUpdateResponse>>;
+    updateAddress(obAddress: UserAddressData): Promise<Response>;
+    removeAddress(iAddressId: number): Promise<Response>;
   }
   export class Users extends Collection<User> {}
 

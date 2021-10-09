@@ -1,4 +1,4 @@
-import { StatResponse } from "@/types";
+import { StatResponse, UserAddressData, UserAddressUpdateResponse } from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber, chain } from "lodash";
 import { Response } from "vue-mc";
@@ -67,10 +67,60 @@ export default class User extends Model {
       update: "users.update",
       delete: "users.destroy",
       stats: "users.stats",
+
+      address: "users.address",
+      addAddress: "users.address.add",
+      updateAddress: "users.address.update",
+      removeAddress: "users.address.remove",
     };
   }
 
   async stats(): Promise<Response<StatResponse>> {
     return await this.createCustomRequest("stats");
+  }
+
+  /**
+   * @description Load current user addresses
+   * @author Alvaro Canepa <bfpdevel@gmail.com>
+   * @return {*}  {Promise<Response<UserAddressData[]>>}
+   * @memberof Profile
+   */
+  async loadAddress(): Promise<Response<UserAddressData[]>> {
+    return await this.createCustomRequest("address", []);
+  }
+
+  /**
+   * @description Create a new address on current user
+   * @author Alvaro Canepa <bfpdevel@gmail.com>
+   * @param {UserAddressData} obAddress
+   * @return {*}  {Promise<Response<UserAddressUpdateResponse>>}
+   * @memberof Profile
+   */
+  async addAddress(
+    obAddress: UserAddressData
+  ): Promise<Response<UserAddressUpdateResponse>> {
+    return await this.createCustomRequest("addAddress", obAddress);
+  }
+
+  /**
+   * @description Update address data from current user
+   * @author Alvaro Canepa <bfpdevel@gmail.com>
+   * @param {UserAddressData} obAddress
+   * @return {*}  {Promise<Response>}
+   * @memberof Profile
+   */
+  async updateAddress(obAddress: UserAddressData): Promise<Response> {
+    return await this.createCustomRequest("updateAddress", obAddress);
+  }
+
+  /**
+   * @description Remove address from current user
+   * @author Alvaro Canepa <bfpdevel@gmail.com>
+   * @param {number} iAddressId
+   * @return {*}  {Promise<Response>}
+   * @memberof Profile
+   */
+  async removeAddress(iAddressId: number): Promise<Response> {
+    return await this.createCustomRequest("removeAddress", { id: iAddressId });
   }
 }
