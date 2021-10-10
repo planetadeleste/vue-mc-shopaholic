@@ -86,7 +86,7 @@ export default class User extends Model {
    * @memberof Profile
    */
   async loadAddress(): Promise<Response<UserAddressData[]>> {
-    return await this.createCustomRequest("address", []);
+    return await this.createCustomRequest("address", ["id"]);
   }
 
   /**
