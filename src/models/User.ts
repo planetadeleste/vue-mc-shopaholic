@@ -56,6 +56,10 @@ export default class User extends Model {
     return {
       methods: {
         stats: "GET",
+        address: "GET",
+        addAddress: "POST",
+        updateAddress: "POST",
+        removeAddress: "POST",
       },
     };
   }
