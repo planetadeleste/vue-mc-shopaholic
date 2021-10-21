@@ -40,13 +40,13 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
 
   interface Brand extends Model, BrandData {}
   class Brand extends Model {}
-  export class Brands extends Collection<Brand> {
+  class Brands extends Collection<Brand> {
     list(): Promise<Response<BrandData[]>>;
   }
 
   interface Category extends Model, CategoryData {}
   class Category extends Model {}
-  export class Categories extends Collection<Category> {
+  class Categories extends Collection<Category> {
     tree(): Promise<Response<CategoryData[]>>;
     list(): Promise<Response<CategoryData[]>>;
     byActive(): Categories;
@@ -55,7 +55,7 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
 
   interface Group extends Model, GroupData {}
   class Group extends Model {}
-  export class Groups extends Collection<Group> {
+  class Groups extends Collection<Group> {
     list(): Promise<Response<GroupData[]>>;
   }
 
@@ -68,11 +68,11 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     getOffers(): Promise<Response<OfferData[]>>;
     updateOffers(): Promise<void>;
   }
-  export class Products extends Collection<Product> {
+  class Products extends Collection<Product> {
     byActive(): Products;
   }
 
-  export type RecordProfileData = UserRegisterOptions & Record<string, any>;
+  type RecordProfileData = UserRegisterOptions & Record<string, any>;
   interface Profile extends Model, ProfileData {}
   class Profile extends Model {
     loadAvatar(): Promise<Response<ResponseProfileAvatarData>>;
@@ -102,32 +102,40 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     updateAddress(obAddress: UserAddressData): Promise<Response>;
     removeAddress(iAddressId: number): Promise<Response>;
   }
-  export class Users extends Collection<User> {}
+  class Users extends Collection<User> {}
 
   interface UserAddress extends Model, UserAddressData {}
   class UserAddress extends Model {}
 
   interface Currency extends Model, CurrencyData {}
   class Currency extends Model {}
-  export class Currencies extends Collection<Currency> {}
+  class Currencies extends Collection<Currency> {
+    list(): Promise<Response<CurrencyData[]>>;
+  }
 
   export {
     Auth,
     AuthData,
     Brand,
     BrandData,
+    Brands,
+    Categories,
     Category,
     CategoryData,
+    Currencies,
     Currency,
     CurrencyData,
     Group,
     GroupData,
+    Groups,
     Offer,
     OfferData,
     Product,
     ProductData,
+    Products,
     Profile,
     ProfileData,
+    RecordProfileData,
     ResponseLoginRegisterData,
     ResponseProfileAvatarData,
     StatData,
@@ -138,5 +146,6 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     UserAddressUpdateResponse,
     UserData,
     UserRegisterOptions,
+    Users,
   };
 }
