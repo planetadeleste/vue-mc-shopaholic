@@ -116,7 +116,7 @@ export default class Auth extends Model {
       password: sPass,
       password_confirmation: sPassConfirm,
     };
-    return await this.createCustomRequest("register", obData);
+    return await this.createCustomRequest("reset_password", obData);
   }
 
   /**
@@ -126,6 +126,6 @@ export default class Auth extends Model {
    */
   async checkResetCode(sCode: string): Promise<Response> {
     const obData = { slug: sCode };
-    return await this.createCustomRequest("check_reset_code", obData);
+    return await this.createCustomRequest("check_reset_code", obData, ["slug"]);
   }
 }
