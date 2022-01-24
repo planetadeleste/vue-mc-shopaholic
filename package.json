@@ -1,6 +1,6 @@
 {
   "name": "@planetadeleste/vue-mc-shopaholic",
-  "version": "1.1.27",
+  "version": "1.1.28",
   "description": "Base of models and collections for ApiShopaholic plugin",
   "repository": {
     "type": "git",
@@ -19,10 +19,7 @@
     "lint": "eslint --fix 'src/**/*.ts'",
     "build": "rollup -c"
   },
-  "dependencies": {
-    "@planetadeleste/vue-mc": "^1.0.77",
-    "vue-mc": "^0.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",
@@ -61,6 +58,8 @@
     "shopaholic"
   ],
   "peerDependencies": {
-    "axios": "^0.24.0"
+    "@planetadeleste/vue-mc": "^1.0.77",
+    "axios": "^0.24.0",
+    "vue-mc": "^0.6.0"
   }
 }
