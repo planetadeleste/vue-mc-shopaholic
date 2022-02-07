@@ -3,7 +3,7 @@ import Currency from "../models/Currency";
 import { Response } from "vue-mc";
 import { CurrencyData } from "@/types";
 
-export default class Currencies extends Collection<Currency> {
+export default class CurrencyCollection extends Collection<Currency> {
   model(): typeof Currency {
     return Currency;
   }
@@ -17,5 +17,9 @@ export default class Currencies extends Collection<Currency> {
 
   async list(): Promise<Response<CurrencyData[]>> {
     return await this.createCustomRequest("list");
+  }
+
+  byActive<T extends CurrencyCollection>(this: T): T {
+    return this.filterBy({ active: 1 });
   }
 }

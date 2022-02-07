@@ -1,7 +1,7 @@
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { required, string } from "vue-mc/validation";
 import { toNumber } from "lodash";
-import Categories from "../collections/Categories";
+import CategoryCollection from "../collections/CategoryCollection";
 
 export default class Category extends Model {
   defaults(): Record<string, any> {
@@ -25,7 +25,7 @@ export default class Category extends Model {
   defineRelations(): Record<string, any> {
     return {
       children: {
-        class: Categories,
+        class: CategoryCollection,
       },
     };
   }

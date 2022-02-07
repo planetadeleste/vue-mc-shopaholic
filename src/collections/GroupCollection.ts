@@ -3,7 +3,7 @@ import { Collection } from "@planetadeleste/vue-mc";
 import { Response } from "vue-mc";
 import Group from "../models/Group";
 
-export default class Groups extends Collection<Group> {
+export default class GroupCollection extends Collection<Group> {
   model(): typeof Group {
     return Group;
   }

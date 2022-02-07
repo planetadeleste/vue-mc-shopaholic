@@ -1,7 +1,7 @@
 import { Collection } from "@planetadeleste/vue-mc";
 import User from "../models/User";
 
-export default class Users extends Collection<User> {
+export default class UserCollection extends Collection<User> {
   model(): typeof User {
     return User;
   }
@@ -10,5 +10,9 @@ export default class Users extends Collection<User> {
     return {
       fetch: "users.index",
     };
+  }
+
+  byActive<T extends UserCollection>(this: T): T {
+    return this.filterBy({ active: 1 });
   }
 }

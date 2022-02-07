@@ -3,7 +3,7 @@ import { Response } from "vue-mc";
 import Category from "../models/Category";
 import { CategoryData } from "../types/Category";
 
-export default class Categories extends Collection<Category> {
+export default class CategoryCollection extends Collection<Category> {
   model(): typeof Category {
     return Category;
   }
@@ -33,16 +33,16 @@ export default class Categories extends Collection<Category> {
   }
 
   /**
-   * @returns {Categories} Fetch active categories only
+   * @returns {CategoryCollection} Fetch active categories only
    */
-  byActive(): Categories {
+  byActive<T extends CategoryCollection>(this: T): T {
     return this.filterBy({ active: 1 });
   }
 
   /**
-   * @returns {Categories} Fetch categories by root tree
+   * @returns {CategoryCollection} Fetch categories by root tree
    */
-  byTree(): Categories {
+  byTree<T extends CategoryCollection>(this: T): T {
     return this.filterBy({ tree: 1 });
   }
 }

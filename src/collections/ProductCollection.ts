@@ -1,7 +1,7 @@
 import { Collection } from "@planetadeleste/vue-mc";
 import Product from "../models/Product";
 
-export default class Products extends Collection<Product> {
+export default class ProductCollection extends Collection<Product> {
   model(): typeof Product {
     return Product;
   }
@@ -13,9 +13,9 @@ export default class Products extends Collection<Product> {
   }
 
   /**
-   * @returns {Products} Fetch active categories only
+   * @returns {ProductCollection} Fetch active categories only
    */
-  byActive(): Products {
+  byActive<T extends ProductCollection>(this: T): T {
     return this.filterBy({ active: 1 });
   }
 }

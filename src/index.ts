@@ -5,14 +5,21 @@
  */
 
 // COLLECTIONS
-import Brands from "./collections/Brands";
-import Categories from "./collections/Categories";
-import Currencies from "./collections/Currencies";
-import Groups from "./collections/Groups";
-import Products from "./collections/Products";
-import Users from "./collections/Users";
+import BrandCollection from "./collections/BrandCollection";
+import CategoryCollection from "./collections/CategoryCollection";
+import CurrencyCollection from "./collections/CurrencyCollection";
+import GroupCollection from "./collections/GroupCollection";
+import ProductCollection from "./collections/ProductCollection";
+import UserCollection from "./collections/UserCollection";
 
-export { Brands, Categories, Currencies, Groups, Products, Users };
+export {
+  BrandCollection,
+  CategoryCollection,
+  CurrencyCollection,
+  GroupCollection,
+  ProductCollection,
+  UserCollection,
+};
 
 // MODELS
 import Auth from "./models/Auth";
