@@ -1,7 +1,8 @@
+import { UserAddressData } from "@/types";
 import { Model } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
 
-export default class UserAddress extends Model {
+export default class UserAddress extends Model<UserAddressData> {
   defaults(): Record<string, any> {
     return {
       id: null,

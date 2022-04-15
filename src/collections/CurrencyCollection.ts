@@ -1,6 +1,6 @@
 import { Collection } from "@planetadeleste/vue-mc";
 import Currency from "../models/Currency";
-import { Response } from "vue-mc";
+import { Response } from "@planetadeleste/vuemc";
 import { CurrencyData } from "@/types";
 
 export default class CurrencyCollection extends Collection<Currency> {

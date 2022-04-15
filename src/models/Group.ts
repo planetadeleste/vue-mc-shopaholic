@@ -1,8 +1,9 @@
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
-import { required, string } from "vue-mc/validation";
+import { required, string } from "@planetadeleste/vuemc/validation";
+import { GroupData } from "@/types";
 
-export default class Group extends Model {
+export default class Group extends Model<GroupData> {
   defaults(): Record<string, any> {
     return {
       id: null,

@@ -1,11 +1,12 @@
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
-import { Response } from "vue-mc";
+import { Response } from "@planetadeleste/vuemc";
 import _ from "lodash";
-import { required, string, email } from "vue-mc/validation";
+import { required, string, email } from "@planetadeleste/vuemc/validation";
 import {
   UserRegisterOptions,
   ResponseLoginRegisterData,
   ResponseProfileAvatarData,
+  ProfileData,
 } from "../types/Profile";
 import {
   UserAddressData,
@@ -14,7 +15,7 @@ import {
 
 type RecordProfileData = UserRegisterOptions & Record<string, any>;
 
-export default class Profile extends Model {
+export default class Profile extends Model<ProfileData> {
   defaults(): Record<string, any> {
     return {
       id: null,

@@ -1,9 +1,10 @@
+import { CategoryData } from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
-import { required, string } from "vue-mc/validation";
+import { required, string } from "@planetadeleste/vuemc/validation";
 import { toNumber } from "lodash";
 import CategoryCollection from "../collections/CategoryCollection";
 
-export default class Category extends Model {
+export default class Category extends Model<CategoryData> {
   defaults(): Record<string, any> {
     return {
       id: null,

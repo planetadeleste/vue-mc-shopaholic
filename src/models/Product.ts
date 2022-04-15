@@ -1,8 +1,8 @@
-import { OfferData, StatResponse } from "@/types";
+import { OfferData, ProductData, StatResponse } from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
-import { Response } from "vue-mc";
-import { required, string } from "vue-mc/validation";
+import { required, string } from "@planetadeleste/vuemc/validation";
+import { Response } from "@planetadeleste/vuemc";
 
 /**
  * @description
@@ -30,7 +30,7 @@ import { required, string } from "vue-mc/validation";
  * @property {string} thumbnail
  * @property {string} code
  */
-export default class Product extends Model {
+export default class Product extends Model<ProductData> {
   defaults(): Record<string, any> {
     return {
       id: null,
@@ -106,8 +106,8 @@ export default class Product extends Model {
     const obOffers = await this.getOffers().then((obResponse) =>
       obResponse.getData()
     );
-    if (obOffers && obOffers.data) {
-      this.set("offers", obOffers.data);
+    if (obOffers) {
+      this.set("offers", obOffers);
     }
   }
 }

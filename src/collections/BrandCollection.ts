@@ -1,10 +1,10 @@
 import { BrandData } from "@/types";
 import { Collection } from "@planetadeleste/vue-mc";
-import { Response } from "vue-mc";
+import { Response } from "@planetadeleste/vuemc";
 import Brand from "../models/Brand";
 
 export default class BrandCollection extends Collection<Brand> {
-  model(): typeof Brand {
+  model() {
     return Brand;
   }
 

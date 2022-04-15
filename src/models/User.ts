@@ -1,10 +1,15 @@
-import { StatResponse, UserAddressData, UserAddressUpdateResponse } from "@/types";
+import {
+  StatResponse,
+  UserAddressData,
+  UserAddressUpdateResponse,
+  UserData,
+} from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber, chain } from "lodash";
-import { Response } from "vue-mc";
-import { required, string, email } from "vue-mc/validation";
+import { Response } from "@planetadeleste/vuemc";
+import { required, string, email } from "@planetadeleste/vuemc/validation";
 
-export default class User extends Model {
+export default class User extends Model<UserData> {
   defaults(): Record<string, any> {
     return {
       id: null,

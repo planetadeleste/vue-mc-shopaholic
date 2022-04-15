@@ -19,10 +19,10 @@ import {
 
 declare module "@planetadeleste/vue-mc-shopaholic" {
   import { Model, Collection } from "@planetadeleste/vue-mc";
-  import { Response } from "vue-mc";
+  import { Response } from "@planetadeleste/vuemc";
 
-  interface Auth extends Model, AuthData {}
-  class Auth extends Model {
+  interface Auth extends Model<AuthData>, AuthData {}
+  class Auth extends Model<AuthData> {
     check(): Promise<Response>;
     csrf(): Promise<Response>;
     refresh(): Promise<Response>;
@@ -38,15 +38,15 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     checkResetCode(sCode: string): Promise<Response>;
   }
 
-  interface Brand extends Model, BrandData {}
-  class Brand extends Model {}
+  interface Brand extends Model<BrandData>, BrandData {}
+  class Brand extends Model<BrandData> {}
   class BrandCollection extends Collection<Brand> {
     list(): Promise<Response<BrandData[]>>;
     byActive<T extends BrandCollection>(this: T): T;
   }
 
-  interface Category extends Model, CategoryData {}
-  class Category extends Model {}
+  interface Category extends Model<CategoryData>, CategoryData {}
+  class Category extends Model<CategoryData> {}
   class CategoryCollection extends Collection<Category> {
     tree(): Promise<Response<CategoryData[]>>;
     list(): Promise<Response<CategoryData[]>>;
@@ -54,17 +54,17 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     byTree<T extends CategoryCollection>(this: T): T;
   }
 
-  interface Group extends Model, GroupData {}
-  class Group extends Model {}
+  interface Group extends Model<GroupData>, GroupData {}
+  class Group extends Model<GroupData> {}
   class GroupCollection extends Collection<Group> {
     list(): Promise<Response<GroupData[]>>;
   }
 
-  interface Offer extends Model, OfferData {}
-  class Offer extends Model {}
+  interface Offer extends Model<OfferData>, OfferData {}
+  class Offer extends Model<OfferData> {}
 
-  interface Product extends Model, ProductData {}
-  class Product extends Model {
+  interface Product extends Model<ProductData>, ProductData {}
+  class Product extends Model<ProductData> {
     stats(): Promise<Response<StatResponse>>;
     getOffers(): Promise<Response<OfferData[]>>;
     updateOffers(): Promise<void>;
@@ -74,8 +74,8 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
   }
 
   type RecordProfileData = UserRegisterOptions & Record<string, any>;
-  interface Profile extends Model, ProfileData {}
-  class Profile extends Model {
+  interface Profile extends Model<ProfileData>, ProfileData {}
+  class Profile extends Model<ProfileData> {
     loadAvatar(): Promise<Response<ResponseProfileAvatarData>>;
     loadAddress(): Promise<Response<UserAddressData[]>>;
     addAddress(
@@ -93,8 +93,8 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     logout(): Promise<Response>;
   }
 
-  interface User extends Model, UserData {}
-  class User extends Model {
+  interface User extends Model<UserData>, UserData {}
+  class User extends Model<UserData> {
     stats(): Promise<Response<StatResponse>>;
     loadAddress(): Promise<Response<UserAddressData[]>>;
     addAddress(
@@ -107,11 +107,11 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
     byActive<T extends UserCollection>(this: T): T;
   }
 
-  interface UserAddress extends Model, UserAddressData {}
-  class UserAddress extends Model {}
+  interface UserAddress extends Model<UserAddressData>, UserAddressData {}
+  class UserAddress extends Model<UserAddressData> {}
 
-  interface Currency extends Model, CurrencyData {}
-  class Currency extends Model {}
+  interface Currency extends Model<CurrencyData>, CurrencyData {}
+  class Currency extends Model<CurrencyData> {}
   class CurrencyCollection extends Collection<Currency> {
     list(): Promise<Response<CurrencyData[]>>;
     byActive<T extends CurrencyCollection>(this: T): T;

@@ -1,3 +1,4 @@
+import { OfferData } from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
 
@@ -26,7 +27,7 @@ import { toNumber } from "lodash";
  * @property {array} images
  * @property {array} property
  */
-export default class Offer extends Model {
+export default class Offer extends Model<OfferData> {
   defaults(): Record<string, any> {
     return {
       id: null,

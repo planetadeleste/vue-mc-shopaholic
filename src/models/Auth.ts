@@ -1,7 +1,8 @@
+import { AuthData } from "@/types";
 import { Model } from "@planetadeleste/vue-mc";
-import { Response } from "vue-mc";
+import { Response } from "@planetadeleste/vuemc";
 
-export default class Auth extends Model {
+export default class Auth extends Model<AuthData> {
   options(): Record<string, any> {
     return {
       methods: {

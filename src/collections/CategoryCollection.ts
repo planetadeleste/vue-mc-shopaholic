@@ -1,5 +1,5 @@
 import { Collection } from "@planetadeleste/vue-mc";
-import { Response } from "vue-mc";
+import { Response } from "@planetadeleste/vuemc";
 import Category from "../models/Category";
 import { CategoryData } from "../types/Category";
 

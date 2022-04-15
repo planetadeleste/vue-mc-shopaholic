@@ -1,6 +1,6 @@
 import { GroupData } from "@/types";
 import { Collection } from "@planetadeleste/vue-mc";
-import { Response } from "vue-mc";
+import { Response } from "@planetadeleste/vuemc";
 import Group from "../models/Group";
 
 export default class GroupCollection extends Collection<Group> {
