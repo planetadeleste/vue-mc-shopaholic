@@ -4,7 +4,7 @@ import { Response } from "@planetadeleste/vuemc";
 import Brand from "../models/Brand";
 
 export default class BrandCollection extends Collection<Brand> {
-  model() {
+  model(): typeof Brand {
     return Brand;
   }
 

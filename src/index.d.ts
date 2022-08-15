@@ -15,11 +15,11 @@ import {
   UserAddressUpdateResponse,
   UserData,
   UserRegisterOptions,
-} from "./types";
+} from './types';
 
-declare module "@planetadeleste/vue-mc-shopaholic" {
-  import { Model, Collection } from "@planetadeleste/vue-mc";
-  import { Response } from "@planetadeleste/vuemc";
+declare module '@planetadeleste/vue-mc-shopaholic' {
+  import { Model, Collection } from '@planetadeleste/vue-mc';
+  import { Response } from '@planetadeleste/vuemc';
 
   interface Auth extends Model<AuthData>, AuthData {}
   class Auth extends Model<AuthData> {
@@ -71,6 +71,7 @@ declare module "@planetadeleste/vue-mc-shopaholic" {
   }
   class ProductCollection extends Collection<Product> {
     byActive<T extends ProductCollection>(this: T): T;
+    list(): Promise<Response<ProductData[]>>;
   }
 
   type RecordProfileData = UserRegisterOptions & Record<string, any>;
