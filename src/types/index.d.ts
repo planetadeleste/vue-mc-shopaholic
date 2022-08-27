@@ -7,5 +7,6 @@ export * from "./Offer";
 export * from "./Product";
 export * from "./Profile";
 export * from "./Stats";
+export * from "./Tax";
 export * from "./User";
 export * from "./UserAddress";

@@ -18,6 +18,7 @@ specifiers:
   eslint: ^7.32.0
   eslint-plugin-prettier: ^3.4.1
   generate-template-files: ^3.2.0
+  insert-line: ^1.1.0
   install-peers-cli: ^2.2.0
   lodash: ^4.17.21
   rollup: ^2.75.6
@@ -48,6 +49,7 @@ devDependencies:
   eslint: 7.32.0
   eslint-plugin-prettier: 3.4.1_lk2fkjavihlcu7p5a3tdxfycz4
   generate-template-files: 3.2.0
+  insert-line: 1.1.0
   install-peers-cli: 2.2.0
   lodash: 4.17.21
   rollup: 2.75.6
@@ -2591,6 +2593,10 @@ packages:
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+    dev: true
+
+  /insert-line/1.1.0:
+    resolution: {integrity: sha512-+sJ9fMN0VX9hmNuGtxaARPe7oA/a/atDzU+1v2IeDW66cJdm82gAbzfap4cyDRQ4710pZy3PtjL6Q5iJvX4cDA==}
     dev: true
 
   /install-peers-cli/2.2.0:

@@ -11,6 +11,7 @@ import {
   ResponseProfileAvatarData,
   StatData,
   StatResponse,
+  TaxData,
   UserAddressData,
   UserAddressUpdateResponse,
   UserData,
@@ -118,6 +119,13 @@ declare module '@planetadeleste/vue-mc-shopaholic' {
     byActive<T extends CurrencyCollection>(this: T): T;
   }
 
+  interface Tax extends Model<TaxData>, TaxData {}
+  class Tax extends Model<TaxData> {}
+  class TaxCollection extends Collection<Tax> {
+    list(): Promise<Response<TaxData[]>>;
+    byActive<T extends TaxCollection>(this: T): T;
+  }
+
   export {
     Auth,
     AuthData,
@@ -146,6 +154,9 @@ declare module '@planetadeleste/vue-mc-shopaholic' {
     StatData,
     StatResponse,
     User,
+    Tax,
+    TaxData,
+    TaxCollection,
     UserAddress,
     UserAddressData,
     UserAddressUpdateResponse,
