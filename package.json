@@ -17,34 +17,34 @@
   "scripts": {
     "generate": "node ./tools/generate.js",
     "lint": "eslint --fix 'src/**/*.ts'",
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "install-peers": "install-peers -f"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.2",
-    "@babel/preset-env": "^7.18.2",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^19.0.2",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.3",
-    "@types/lodash": "^4.14.182",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "directory-tree": "^2.3.1",
-    "eslint": "^7.32.0",
-    "eslint-plugin-prettier": "^3.4.1",
-    "generate-template-files": "^3.2.0",
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^23.0.5",
+    "@rollup/plugin-json": "^5.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@types/lodash": "^4.14.191",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "directory-tree": "^3.4.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "generate-template-files": "^3.2.1",
     "insert-line": "^1.1.0",
     "install-peers-cli": "^2.2.0",
     "lodash": "^4.17.21",
-    "rollup": "^2.75.6",
+    "rollup": "^3.7.5",
     "rollup-plugin-clear": "^2.0.7",
-    "ts-loader": "^9.3.0",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.3",
-    "vue": "^3.2.37",
-    "vuex-module-decorators": "^1.2.0"
+    "ts-loader": "^9.4.2",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4",
+    "vue": "^3.2.45",
+    "vuex-module-decorators": "^2.0.0"
   },
   "files": [
     "dist",
@@ -62,5 +62,8 @@
     "@planetadeleste/vue-mc": "^2.0.1",
     "@planetadeleste/vuemc": "^1.0.6",
     "axios": "^0.26.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
