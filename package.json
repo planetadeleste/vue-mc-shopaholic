@@ -33,6 +33,7 @@
     "@typescript-eslint/parser": "^5.46.1",
     "directory-tree": "^3.4.0",
     "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "generate-template-files": "^3.2.1",
     "insert-line": "^1.1.0",

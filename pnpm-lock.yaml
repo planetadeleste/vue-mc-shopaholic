@@ -16,6 +16,7 @@ specifiers:
   axios: ^0.26.1
   directory-tree: ^3.4.0
   eslint: ^8.30.0
+  eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.2.1
   generate-template-files: ^3.2.1
   insert-line: ^1.1.0
@@ -47,7 +48,8 @@ devDependencies:
   '@typescript-eslint/parser': 5.46.1_lzzuuodtsqwxnvqeq4g4likcqa
   directory-tree: 3.4.0
   eslint: 8.30.0
-  eslint-plugin-prettier: 4.2.1_l5rdqc4k22455lce6ocqroldia
+  eslint-config-prettier: 8.5.0_eslint@8.30.0
+  eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
   generate-template-files: 3.2.1
   insert-line: 1.1.0
   install-peers-cli: 2.2.0
@@ -1436,13 +1438,13 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
     dev: true
 
@@ -2238,7 +2240,16 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_l5rdqc4k22455lce6ocqroldia:
+  /eslint-config-prettier/8.5.0_eslint@8.30.0:
+    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 8.30.0
+    dev: true
+
+  /eslint-plugin-prettier/4.2.1_kl4pe43v5b43npmso5hoplpbyi:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2250,6 +2261,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.30.0
+      eslint-config-prettier: 8.5.0_eslint@8.30.0
       prettier: 2.8.1
       prettier-linter-helpers: 1.0.0
     dev: true
