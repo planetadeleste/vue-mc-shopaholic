@@ -1,6 +1,6 @@
 {
   "name": "@planetadeleste/vue-mc-shopaholic",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Base of models and collections for ApiShopaholic plugin",
   "repository": {
     "type": "git",
