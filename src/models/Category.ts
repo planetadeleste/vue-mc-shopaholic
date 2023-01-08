@@ -2,9 +2,10 @@ import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { required, string } from "vue-mc/validation";
 import { toNumber } from "lodash";
 import CategoryCollection from "../collections/CategoryCollection";
+import { CategoryData } from "@/types";
 
 export default class Category extends Model {
-  defaults(): Record<string, any> {
+  defaults(): Record<keyof Omit<CategoryData, "children">, any> {
     return {
       id: null,
       parent_id: null,

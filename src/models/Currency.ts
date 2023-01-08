@@ -1,10 +1,13 @@
 import { Model } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
 import { required } from "vue-mc/validation";
+import { CurrencyData } from "@/types";
 
 export default class Currency extends Model {
-  defaults(): Record<string, any> {
+  defaults(): Record<keyof CurrencyData, any> {
     return {
+      created_at: null,
+      updated_at: null,
       id: null,
       external_id: null,
       name: null,

@@ -19,7 +19,11 @@
     "lint": "eslint --fix 'src/**/*.ts'",
     "build": "rollup -c"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@planetadeleste/vue-mc": "^1.0.77",
+    "axios": "^1.2.2",
+    "vue-mc": "^0.6.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.1",

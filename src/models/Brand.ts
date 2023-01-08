@@ -1,9 +1,10 @@
-import { Model, cleanStr } from "@planetadeleste/vue-mc";
+import { cleanStr, Model } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
 import { required, string } from "vue-mc/validation";
+import { BrandData } from "@/types";
 
 export default class Brand extends Model {
-  defaults(): Record<string, any> {
+  defaults(): Record<keyof BrandData, any> {
     return {
       id: null,
       name: null,

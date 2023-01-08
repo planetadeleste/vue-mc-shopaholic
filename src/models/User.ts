@@ -1,12 +1,21 @@
-import { StatResponse, UserAddressData, UserAddressUpdateResponse } from "@/types";
+import {
+  StatResponse,
+  UserAddressData,
+  UserAddressUpdateResponse,
+  UserData,
+} from "@/types";
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber, chain } from "lodash";
 import { Response } from "vue-mc";
 import { required, string, email } from "vue-mc/validation";
 
 export default class User extends Model {
-  defaults(): Record<string, any> {
+  defaults(): Record<
+    keyof Omit<UserData, "socialite_token" | "fullName">,
+    any
+  > {
     return {
+      role: null,
       id: null,
       is_activated: true,
       name: null,
@@ -37,7 +46,11 @@ export default class User extends Model {
   accessors(): Record<string, any> {
     return {
       fullName: () => {
-        return chain([this.name, this.middle_name, this.last_name])
+        return chain([
+          this.get("name"),
+          this.get("middle_name"),
+          this.get("last_name"),
+        ])
           .compact()
           .join(" ")
           .value();

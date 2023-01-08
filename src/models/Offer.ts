@@ -1,34 +1,14 @@
 import { Model, cleanStr } from "@planetadeleste/vue-mc";
 import { toNumber } from "lodash";
+import { OfferData } from "@/types";
 
-/**
- * Offer model
- *
- * @author Alvaro Canepa <bfpdevel@gmail.com>
- * @export
- * @class Offer
- * @extends {Model}
- * @property {number} id
- * @property {number} product_id
- * @property {string} name
- * @property {string} code
- * @property {number} price
- * @property {number} price_value
- * @property {number} old_price
- * @property {number} old_price_value
- * @property {number} quantity
- * @property {string} currency
- * @property {string} preview_text
- * @property {string} thumbnail
- * @property {boolean} active
- * @property {string} description
- * @property {string} preview_image
- * @property {array} images
- * @property {array} property
- */
 export default class Offer extends Model {
-  defaults(): Record<string, any> {
+  defaults(): Record<keyof OfferData, any> {
     return {
+      end_publish_at: null,
+      start_publish_at: null,
+      text: null,
+      value: null,
       id: null,
       product_id: null,
       active: true,
@@ -58,13 +38,13 @@ export default class Offer extends Model {
       preview_text: [cleanStr],
       price: (sPrice?: string | number) => {
         if (!sPrice) {
-          return this.price_value;
+          return this.get("price_value", 0);
         }
         return sPrice;
       },
       old_price: (sPrice?: string | number) => {
         if (!sPrice) {
-          return this.old_price_value;
+          return this.get("old_price_value", 0);
         }
         return sPrice;
       },

@@ -1,21 +1,20 @@
-import { Model, cleanStr } from "@planetadeleste/vue-mc";
+import { cleanStr, Model } from "@planetadeleste/vue-mc";
 import { Response } from "vue-mc";
-import _ from "lodash";
-import { required, string, email } from "vue-mc/validation";
+import { chain, toNumber } from "lodash";
+import { email, required, string } from "vue-mc/validation";
 import {
-  UserRegisterOptions,
+  ProfileData,
   ResponseLoginRegisterData,
   ResponseProfileAvatarData,
-} from "../types/Profile";
-import {
   UserAddressData,
   UserAddressUpdateResponse,
-} from "../types/UserAddress";
+  UserRegisterOptions,
+} from "@/types";
 
 type RecordProfileData = UserRegisterOptions & Record<string, any>;
 
 export default class Profile extends Model {
-  defaults(): Record<string, any> {
+  defaults(): Record<keyof Omit<ProfileData, "fullName">, any> {
     return {
       id: null,
       groups: [],
@@ -36,7 +35,7 @@ export default class Profile extends Model {
 
   mutations(): Record<string, any> {
     return {
-      id: (id: string) => _.toNumber(id) || null,
+      id: (id: string) => toNumber(id) || null,
       name: [cleanStr],
       email: [cleanStr],
     };
@@ -45,7 +44,11 @@ export default class Profile extends Model {
   accessors(): Record<string, any> {
     return {
       fullName: () => {
-        return _.chain([this.name, this.middle_name, this.last_name])
+        return chain([
+          this.get("name"),
+          this.get("middle_name"),
+          this.get("last_name"),
+        ])
           .compact()
           .join(" ")
           .value();
