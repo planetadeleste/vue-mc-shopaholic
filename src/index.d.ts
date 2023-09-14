@@ -1,212 +1,207 @@
-import {Collection, Model} from "@planetadeleste/vue-mc";
-import {Response} from "vue-mc";
+import { Collection, Model } from "@planetadeleste/vue-mc";
+import { Response } from "vue-mc";
 import {
-    AuthData,
-    BrandData,
-    CategoryData,
-    CurrencyData,
-    GroupData,
-    OfferData,
-    ProductData,
-    ProfileData,
-    ResponseLoginRegisterData,
-    ResponseProfileAvatarData,
-    StatData,
-    StatResponse,
-    UserAddressData,
-    UserAddressUpdateResponse,
-    UserData,
-    UserRegisterOptions,
+  AuthData,
+  BrandData,
+  CategoryData,
+  CurrencyData,
+  GroupData,
+  OfferData,
+  ProductData,
+  ProfileData,
+  ResponseLoginRegisterData,
+  ResponseProfileAvatarData,
+  StatData,
+  StatResponse,
+  TaxData,
+  UserAddressData,
+  UserAddressUpdateResponse,
+  UserData,
+  UserRegisterOptions,
 } from "./types";
 
+interface Auth extends Model, AuthData {}
 
-interface Auth extends Model, AuthData {
+class Auth extends Model<AuthData> {
+  check(): Promise<Response>;
+
+  csrf(): Promise<Response>;
+
+  refresh(): Promise<Response>;
+
+  login(login: string, password: string): Promise<Response>;
+
+  logout(): Promise<Response>;
+
+  register(obData: Record<string, any>): Promise<Response>;
+
+  restorePassword(sEmail: string): Promise<Response>;
+
+  resetPassword(
+    sCode: string,
+    sPass: string,
+    sPassConfirm: string
+  ): Promise<Response>;
+
+  checkResetCode(sCode: string): Promise<Response>;
 }
 
-class Auth extends Model {
-    check(): Promise<Response>;
+interface Brand extends Model, BrandData {}
 
-    csrf(): Promise<Response>;
-
-    refresh(): Promise<Response>;
-
-    login(login: string, password: string): Promise<Response>;
-
-    logout(): Promise<Response>;
-
-    register(obData: Record<string, any>): Promise<Response>;
-
-    restorePassword(sEmail: string): Promise<Response>;
-
-    resetPassword(
-        sCode: string,
-        sPass: string,
-        sPassConfirm: string
-    ): Promise<Response>;
-
-    checkResetCode(sCode: string): Promise<Response>;
-}
-
-interface Brand extends Model, BrandData {
-}
-
-class Brand extends Model {
-}
+class Brand extends Model<BrandData> {}
 
 class BrandCollection extends Collection<Brand> {
-    list(): Promise<Response<BrandData[]>>;
+  list(): Promise<Response<BrandData[]>>;
 
-    byActive<T extends BrandCollection>(this: T): T;
+  byActive<T extends BrandCollection>(this: T): T;
 }
 
-interface Category extends Model, CategoryData {
-}
+interface Category extends Model, CategoryData {}
 
-class Category extends Model {
-}
+class Category extends Model<CategoryData> {}
 
 class CategoryCollection extends Collection<Category> {
-    tree(): Promise<Response<CategoryData[]>>;
+  tree(): Promise<Response<CategoryData[]>>;
 
-    list(): Promise<Response<CategoryData[]>>;
+  list(): Promise<Response<CategoryData[]>>;
 
-    byActive<T extends CategoryCollection>(this: T): T;
+  byActive<T extends CategoryCollection>(this: T): T;
 
-    byTree<T extends CategoryCollection>(this: T): T;
+  byTree<T extends CategoryCollection>(this: T): T;
 }
 
-interface Group extends Model, GroupData {
-}
+interface Group extends Model, GroupData {}
 
-class Group extends Model {
-}
+class Group extends Model<GroupData> {}
 
 class GroupCollection extends Collection<Group> {
-    list(): Promise<Response<GroupData[]>>;
+  list(): Promise<Response<GroupData[]>>;
 }
 
-interface Offer extends Model, OfferData {
-}
+interface Offer extends Model, OfferData {}
 
-class Offer extends Model {
-}
+class Offer extends Model<OfferData> {}
 
-interface Product extends Model, ProductData {
-}
+interface Product extends Model, ProductData {}
 
-class Product extends Model {
-    stats(): Promise<Response<StatResponse>>;
+class Product extends Model<ProductData> {
+  stats(): Promise<Response<StatResponse>>;
 
-    getOffers(): Promise<Response<OfferData[]>>;
+  getOffers(): Promise<Response<OfferData[]>>;
 
-    updateOffers(): Promise<void>;
+  updateOffers(): Promise<void>;
 }
 
 class ProductCollection extends Collection<Product> {
-    byActive<T extends ProductCollection>(this: T): T;
+  byActive<T extends ProductCollection>(this: T): T;
 }
 
 type RecordProfileData = UserRegisterOptions & Record<string, any>;
 
-interface Profile extends Model, ProfileData {
+interface Profile extends Model, ProfileData {}
+
+class Profile extends Model<ProfileData> {
+  loadAvatar(): Promise<Response<ResponseProfileAvatarData>>;
+
+  loadAddress(): Promise<Response<UserAddressData[]>>;
+
+  addAddress(
+    obAddress: UserAddressData
+  ): Promise<Response<UserAddressUpdateResponse>>;
+
+  updateAddress(obAddress: UserAddressData): Promise<Response>;
+
+  removeAddress(iAddressId: number): Promise<Response>;
+
+  login(
+    login: string,
+    password: string
+  ): Promise<Response<ResponseLoginRegisterData>>;
+
+  register(
+    obData: RecordProfileData
+  ): Promise<Response<ResponseLoginRegisterData>>;
+
+  logout(): Promise<Response>;
 }
 
-class Profile extends Model {
-    loadAvatar(): Promise<Response<ResponseProfileAvatarData>>;
+interface User extends Model, UserData {}
 
-    loadAddress(): Promise<Response<UserAddressData[]>>;
+class User extends Model<UserData> {
+  stats(): Promise<Response<StatResponse>>;
 
-    addAddress(
-        obAddress: UserAddressData
-    ): Promise<Response<UserAddressUpdateResponse>>;
+  loadAddress(): Promise<Response<UserAddressData[]>>;
 
-    updateAddress(obAddress: UserAddressData): Promise<Response>;
+  addAddress(
+    obAddress: UserAddressData
+  ): Promise<Response<UserAddressUpdateResponse>>;
 
-    removeAddress(iAddressId: number): Promise<Response>;
+  updateAddress(obAddress: UserAddressData): Promise<Response>;
 
-    login(
-        login: string,
-        password: string
-    ): Promise<Response<ResponseLoginRegisterData>>;
-
-    register(
-        obData: RecordProfileData
-    ): Promise<Response<ResponseLoginRegisterData>>;
-
-    logout(): Promise<Response>;
-}
-
-interface User extends Model, UserData {
-}
-
-class User extends Model {
-    stats(): Promise<Response<StatResponse>>;
-
-    loadAddress(): Promise<Response<UserAddressData[]>>;
-
-    addAddress(
-        obAddress: UserAddressData
-    ): Promise<Response<UserAddressUpdateResponse>>;
-
-    updateAddress(obAddress: UserAddressData): Promise<Response>;
-
-    removeAddress(iAddressId: number): Promise<Response>;
+  removeAddress(iAddressId: number): Promise<Response>;
 }
 
 class UserCollection extends Collection<User> {
-    byActive<T extends UserCollection>(this: T): T;
+  byActive<T extends UserCollection>(this: T): T;
 }
 
-interface UserAddress extends Model, UserAddressData {
-}
+interface UserAddress extends Model, UserAddressData {}
 
-class UserAddress extends Model {
-}
+class UserAddress extends Model<UserAddressData> {}
 
-interface Currency extends Model, CurrencyData {
-}
+interface Currency extends Model, CurrencyData {}
 
-class Currency extends Model {
-}
+class Currency extends Model<CurrencyData> {}
 
 class CurrencyCollection extends Collection<Currency> {
-    list(): Promise<Response<CurrencyData[]>>;
+  list(): Promise<Response<CurrencyData[]>>;
 
-    byActive<T extends CurrencyCollection>(this: T): T;
+  byActive<T extends CurrencyCollection>(this: T): T;
+}
+
+interface Tax extends Model, TaxData {}
+
+class Tax extends Model<TaxData> {}
+
+class TaxCollection extends Collection<Tax> {
+  list(): Promise<Response<TaxData[]>>;
 }
 
 export {
-    Auth,
-    AuthData,
-    Brand,
-    BrandData,
-    BrandCollection,
-    CategoryCollection,
-    Category,
-    CategoryData,
-    CurrencyCollection,
-    Currency,
-    CurrencyData,
-    Group,
-    GroupData,
-    GroupCollection,
-    Offer,
-    OfferData,
-    Product,
-    ProductData,
-    ProductCollection,
-    Profile,
-    ProfileData,
-    RecordProfileData,
-    ResponseLoginRegisterData,
-    ResponseProfileAvatarData,
-    StatData,
-    StatResponse,
-    User,
-    UserAddress,
-    UserAddressData,
-    UserAddressUpdateResponse,
-    UserData,
-    UserRegisterOptions,
-    UserCollection,
+  Auth,
+  AuthData,
+  Brand,
+  BrandCollection,
+  BrandData,
+  Category,
+  CategoryCollection,
+  CategoryData,
+  Currency,
+  CurrencyCollection,
+  CurrencyData,
+  Group,
+  GroupCollection,
+  GroupData,
+  Offer,
+  OfferData,
+  Product,
+  ProductCollection,
+  ProductData,
+  Profile,
+  ProfileData,
+  RecordProfileData,
+  ResponseLoginRegisterData,
+  ResponseProfileAvatarData,
+  StatData,
+  StatResponse,
+  Tax,
+  TaxCollection,
+  TaxData,
+  User,
+  UserAddress,
+  UserAddressData,
+  UserAddressUpdateResponse,
+  UserCollection,
+  UserData,
+  UserRegisterOptions,
 };

@@ -1,28 +1,35 @@
 /* eslint-disable no-undef */
 const { writeFile } = require("fs");
 const dirTree = require("directory-tree");
-const { chain, map, get, join, template, templateSettings } = require("lodash");
+const { chain, map, get, join, template, templateSettings, set } = require("lodash");
 
-const writeImportExport = (sPath, sPlugin) => {
-  const tree = dirTree("src");
-  const arFiles = chain(tree.children)
-    .filter(item => item.type == "directory")
-    .keyBy("name")
-    .mapValues(item => {
-      return map(item.children, file => get(file, "name").replace(".ts", ""));
-    })
-    .value();
+const writeImportExport = (sPlugin) => {
+  const obFolders = {};
+  dirTree("src", {}, null, (item) => {
+    if (["collections", "models"].includes(item.name)) {
+      const arFiles = map(item.children, file => get(file, "name").replace(".ts", ""));
+      set(obFolders, item.name, arFiles);
+    }
+  });
 
-  const importCollections = chain(arFiles.collections)
+  // const arFiles = chain(tree.children)
+  //   .filter(item => item.type == "directory")
+  //   .keyBy("name")
+  //   .mapValues(item => {
+  //     return map(item.children, file => get(file, "name").replace(".ts", ""));
+  //   })
+  //   .value();
+  
+  const importCollections = chain(obFolders.collections)
     .map(sFile => `import ${sFile} from "./collections/${sFile}";`)
     .join("\n")
     .value();
-  const exportCollections = `export { ${join(arFiles.collections, ", ")} };\n`;
-  const importModels = chain(arFiles.models)
+  const exportCollections = `export { ${join(obFolders.collections, ", ")} };\n`;
+  const importModels = chain(obFolders.models)
     .map(sFile => `import ${sFile} from "./models/${sFile}";`)
     .join("\n")
     .value();
-  const exportModels = `export { ${join(arFiles.models, ", ")} };\n`;
+  const exportModels = `export { ${join(obFolders.models, ", ")} };\n`;
 
   const sTemplate = `
   /**
