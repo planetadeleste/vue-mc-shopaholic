@@ -22,7 +22,7 @@ import {
 
 interface Auth extends Model, AuthData {}
 
-class Auth extends Model<AuthData> {
+class Auth extends Model<Partial<AuthData>> {
   check(): Promise<Response>;
 
   csrf(): Promise<Response>;
@@ -48,7 +48,7 @@ class Auth extends Model<AuthData> {
 
 interface Brand extends Model, BrandData {}
 
-class Brand extends Model<BrandData> {}
+class Brand extends Model<Partial<BrandData>> {}
 
 class BrandCollection extends Collection<Brand> {
   list(): Promise<Response<BrandData[]>>;
@@ -58,7 +58,7 @@ class BrandCollection extends Collection<Brand> {
 
 interface Category extends Model, CategoryData {}
 
-class Category extends Model<CategoryData> {}
+class Category extends Model<Partial<CategoryData>> {}
 
 class CategoryCollection extends Collection<Category> {
   tree(): Promise<Response<CategoryData[]>>;
@@ -72,7 +72,7 @@ class CategoryCollection extends Collection<Category> {
 
 interface Group extends Model, GroupData {}
 
-class Group extends Model<GroupData> {}
+class Group extends Model<Partial<GroupData>> {}
 
 class GroupCollection extends Collection<Group> {
   list(): Promise<Response<GroupData[]>>;
@@ -80,11 +80,11 @@ class GroupCollection extends Collection<Group> {
 
 interface Offer extends Model, OfferData {}
 
-class Offer extends Model<OfferData> {}
+class Offer extends Model<Partial<OfferData>> {}
 
 interface Product extends Model, ProductData {}
 
-class Product extends Model<ProductData> {
+class Product extends Model<Partial<ProductData>> {
   stats(): Promise<Response<StatResponse>>;
 
   getOffers(): Promise<Response<OfferData[]>>;
@@ -100,7 +100,7 @@ type RecordProfileData = UserRegisterOptions & Record<string, any>;
 
 interface Profile extends Model, ProfileData {}
 
-class Profile extends Model<ProfileData> {
+class Profile extends Model<Partial<ProfileData>> {
   loadAvatar(): Promise<Response<ResponseProfileAvatarData>>;
 
   loadAddress(): Promise<Response<UserAddressData[]>>;
@@ -127,7 +127,7 @@ class Profile extends Model<ProfileData> {
 
 interface User extends Model, UserData {}
 
-class User extends Model<UserData> {
+class User extends Model<Partial<UserData>> {
   stats(): Promise<Response<StatResponse>>;
 
   loadAddress(): Promise<Response<UserAddressData[]>>;
@@ -147,11 +147,11 @@ class UserCollection extends Collection<User> {
 
 interface UserAddress extends Model, UserAddressData {}
 
-class UserAddress extends Model<UserAddressData> {}
+class UserAddress extends Model<Partial<UserAddressData>> {}
 
 interface Currency extends Model, CurrencyData {}
 
-class Currency extends Model<CurrencyData> {}
+class Currency extends Model<Partial<CurrencyData>> {}
 
 class CurrencyCollection extends Collection<Currency> {
   list(): Promise<Response<CurrencyData[]>>;
@@ -161,7 +161,7 @@ class CurrencyCollection extends Collection<Currency> {
 
 interface Tax extends Model, TaxData {}
 
-class Tax extends Model<TaxData> {}
+class Tax extends Model<Partial<TaxData>> {}
 
 class TaxCollection extends Collection<Tax> {
   list(): Promise<Response<TaxData[]>>;
