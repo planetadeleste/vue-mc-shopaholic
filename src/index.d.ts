@@ -40,7 +40,7 @@ class Auth extends Model<Partial<AuthData>> {
   resetPassword(
     sCode: string,
     sPass: string,
-    sPassConfirm: string
+    sPassConfirm: string,
   ): Promise<Response>;
 
   checkResetCode(sCode: string): Promise<Response>;
@@ -53,7 +53,7 @@ class Brand extends Model<Partial<BrandData>> {}
 class BrandCollection extends Collection<Brand> {
   list(): Promise<Response<BrandData[]>>;
 
-  byActive<T extends BrandCollection>(this: T): T;
+  byActive<T extends BrandCollection = BrandCollection>(this: T): T;
 }
 
 interface Category extends Model, CategoryData {}
@@ -65,9 +65,9 @@ class CategoryCollection extends Collection<Category> {
 
   list(): Promise<Response<CategoryData[]>>;
 
-  byActive<T extends CategoryCollection>(this: T): T;
+  byActive<T extends CategoryCollection = CategoryCollection>(this: T): T;
 
-  byTree<T extends CategoryCollection>(this: T): T;
+  byTree<T extends CategoryCollection = CategoryCollection>(this: T): T;
 }
 
 interface Group extends Model, GroupData {}
@@ -93,7 +93,7 @@ class Product extends Model<Partial<ProductData>> {
 }
 
 class ProductCollection extends Collection<Product> {
-  byActive<T extends ProductCollection>(this: T): T;
+  byActive<T extends ProductCollection = ProductCollection>(this: T): T;
 }
 
 type RecordProfileData = UserRegisterOptions & Record<string, any>;
@@ -106,7 +106,7 @@ class Profile extends Model<Partial<ProfileData>> {
   loadAddress(): Promise<Response<UserAddressData[]>>;
 
   addAddress(
-    obAddress: UserAddressData
+    obAddress: UserAddressData,
   ): Promise<Response<UserAddressUpdateResponse>>;
 
   updateAddress(obAddress: UserAddressData): Promise<Response>;
@@ -115,11 +115,11 @@ class Profile extends Model<Partial<ProfileData>> {
 
   login(
     login: string,
-    password: string
+    password: string,
   ): Promise<Response<ResponseLoginRegisterData>>;
 
   register(
-    obData: RecordProfileData
+    obData: RecordProfileData,
   ): Promise<Response<ResponseLoginRegisterData>>;
 
   logout(): Promise<Response>;
@@ -133,7 +133,7 @@ class User extends Model<Partial<UserData>> {
   loadAddress(): Promise<Response<UserAddressData[]>>;
 
   addAddress(
-    obAddress: UserAddressData
+    obAddress: UserAddressData,
   ): Promise<Response<UserAddressUpdateResponse>>;
 
   updateAddress(obAddress: UserAddressData): Promise<Response>;
@@ -142,7 +142,7 @@ class User extends Model<Partial<UserData>> {
 }
 
 class UserCollection extends Collection<User> {
-  byActive<T extends UserCollection>(this: T): T;
+  byActive<T extends UserCollection = UserCollection>(this: T): T;
 }
 
 interface UserAddress extends Model, UserAddressData {}
@@ -156,7 +156,7 @@ class Currency extends Model<Partial<CurrencyData>> {}
 class CurrencyCollection extends Collection<Currency> {
   list(): Promise<Response<CurrencyData[]>>;
 
-  byActive<T extends CurrencyCollection>(this: T): T;
+  byActive<T extends CurrencyCollection = CurrencyCollection>(this: T): T;
 }
 
 interface Tax extends Model, TaxData {}
